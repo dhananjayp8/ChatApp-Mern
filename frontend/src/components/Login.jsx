@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { setAuthUser } from "../redux/userSlice";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const Login = () => {
       );
       navigate("/");
       //toast.success(res.data.message);
-      //console.log(res.data);
+      console.log(res.data);
       dispatch(setAuthUser(res.data));
     } catch (error) {
       toast.error(error.response.data.message);
